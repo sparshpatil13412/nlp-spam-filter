@@ -18,4 +18,4 @@ A complete machine learning pipeline for spam detection using natural language p
 For detailed setup and training steps, see [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
 ## Web Site
-Check out the live demo of the NLP Spam Filter here: [https://sparsh-nlp-spam-filter.streamlit.app/](https://sparsh-nlp-spam-filter.streamlit.app/)
+Check out the live demo of the NLP Spam Filter here: [https://sparsh-nlp-spam-filter.streamlit.app](https://sparsh-nlp-spam-filter.streamlit.app)
