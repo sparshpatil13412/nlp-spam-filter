@@ -1,12 +1,8 @@
 import streamlit as st
-
 from predict import predict_spam
+import time
 
-st.set_page_config(
-    page_title="Spam Detector",
-    page_icon="📧",
-    layout="centered"
-)
+st.set_page_config(page_title="Spam Detector", page_icon="📧", layout="centered")
 
 st.title("📧 Email Spam Detector")
 st.write("Paste an email below and let the model judge it mercilessly.")
@@ -23,7 +19,10 @@ if submitted:
     if not email_text.strip():
         st.warning("Enter some text first. Even spam needs content.")
     else:
-        prediction_arr, prob_arr = predict_spam(email_text)
+        with st.spinner("Analyzing email..."):
+            time.sleep(2)
+            prediction_arr, prob_arr = predict_spam(email_text)
+        
         prediction = int(prediction_arr[0])
         spam_prob = float(prob_arr[0])
 
@@ -35,6 +34,7 @@ if submitted:
             st.success("✅ **NOT SPAM**")
 
         st.metric(label="Spam Probability", value=f"{spam_prob:.1%}")
+        st.progress(spam_prob)
 
         if spam_prob > 0.7:
             st.write("Confidence: **Very High**")
